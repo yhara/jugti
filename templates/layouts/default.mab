@@ -4,10 +4,14 @@ html do
 
   head do
     title @title
+    link :href => '/css/site.css', :rel => 'stylesheet', :type => 'text/css'
   end
 
   body do
-    layout_content
+    h1 { a "Jugti", :href => '/tricks' }
+    div.main do
+      layout_content
+    end
   end
 
 end
