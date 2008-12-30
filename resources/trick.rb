@@ -3,23 +3,23 @@ module Jugti
     class Trick < Default
 
       # list
-      on(:get, ["tricks"]) do
+      on :get, ["tricks"] do
         view.list(:tricks => controller.all )
       end
 
       # new
-      on(:get, ["trick"]) do
+      on :get, ["trick"] do
         view.new
       end
 
       # create
-      on(:post, ["tricks"]) do
+      on :post, ["tricks"] do
         trick = controller.create
         redirect "/trick/#{trick.id}"
       end
       
       # show
-      on(:get, ["trick", :trick_id]) do
+      on :get, ["trick", :trick_id] do
         trick = model.find(:id => captured.trick_id)
         records = trick.records
         view.show(:trick => trick, :records => records)
