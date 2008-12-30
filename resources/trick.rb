@@ -38,6 +38,13 @@ module Jugti
         redirect "/trick/#{captured.trick_id}"
       end
 
+      # add record
+      on :post, :record => ["trick", :trick_id ] do
+        trick = model.find(:id => captured.trick_id)
+        trick.add_record(Models::Record.create(query.record.to_hash))
+        redirect request.path
+      end
+
     end
   end
 end
