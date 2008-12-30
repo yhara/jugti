@@ -1,0 +1,16 @@
+layout :default, :title => "新規トリック" do
+
+  form :action => "/tricks", :method => 'POST' do
+    label 'トリック名 : '
+    input :type => :text,
+      :name => 'trick.name', :size => 10; br
+
+    label '解説 :'; br
+    textarea :name => 'trick.description', :rows => 10, :cols => 70; br
+
+    input :type => :submit, :value => '保存'
+    a 'キャンセル', :href => "/tricks"
+
+  end
+
+end

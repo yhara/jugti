@@ -6,6 +6,17 @@ module Jugti
       on(:get, ["tricks"]) do
         view.list(:tricks => controller.all )
       end
+
+      # new
+      on(:get, ["trick"]) do
+        view.new
+      end
+
+      # create
+      on(:post, ["tricks"]) do
+        trick = controller.create
+        redirect "/trick/#{trick.id}"
+      end
       
       # show
       on(:get, ["trick", :trick_id]) do

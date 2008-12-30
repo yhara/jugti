@@ -7,5 +7,5 @@ layout :default, :title => 'トリック一覧' do
     end
   end
 
-  #a "トリックを追加する", :href => "trickgt
+  a "トリックを追加する", :href => "/trick"
 end
