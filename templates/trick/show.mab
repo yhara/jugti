@@ -1,6 +1,9 @@
 layout :default, :title => "foo" do
   h2 @trick.name
-  div @trick.description
+  div {
+    span @trick.description
+    a "(編集)", :href => "/trick/#{@trick.id}?mode=edit"
+  }
 
   table do
     tr {
@@ -16,4 +19,5 @@ layout :default, :title => "foo" do
       }
     end
   end
+
 end
