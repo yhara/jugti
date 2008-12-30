@@ -6,4 +6,6 @@ layout :default, :title => 'トリック一覧' do
       li { a trick.name, :href => "trick/#{trick.id}" }
     end
   end
+
+  #a "トリックを追加する", :href => "trickgt
 end

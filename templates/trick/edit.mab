@@ -1,0 +1,6 @@
+layout :default, :title => 'トリックの編集' do
+
+  view :trick, :form, :trick => @trick
+
+end
+
