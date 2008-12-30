@@ -3,14 +3,11 @@ module Jugti
     class Map
       include Waves::Resources::Mixin
 
-      on(:get, []) { 
-        redirect "/tricks" 
-      }
+      on(:get, []) { redirect "/tricks" }
 
-      on(:get, ["tricks"]) {
-        view(:trick).list(:tricks => [])
-      }
-
+      on(:get, ["tricks"]) do
+        view(:trick).list(:tricks => controller(:trick).all )
+      end
       
     end
   end
