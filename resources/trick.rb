@@ -8,7 +8,8 @@ module Jugti
       
       on(:get, ["trick", :trick_id]) do
         trick = model.find(:id => captured.trick_id)
-        view.show(:trick => trick)
+        records = trick.records
+        view.show(:trick => trick, :records => records)
       end
       
     end

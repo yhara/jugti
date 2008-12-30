@@ -1,3 +1,18 @@
 layout :default, :title => "foo" do
   h2 @trick.name
+
+  table do
+    tr {
+      th "日付"
+      th "キャッチ"
+      th "コメント"
+    }
+    @records.each do |record|
+      tr {
+        td record.date_str
+        td record.catches 
+        td record.comment 
+      }
+    end
+  end
 end
