@@ -5,10 +5,8 @@ module Jugti
 
       on(:get, []) { redirect "/tricks" }
 
-      on(:get, ["tricks"]) do
-        view(:trick).list(:tricks => controller(:trick).all )
-      end
-      
+      on(true, ["tricks"])      { to :trick }
+
     end
   end
 end
