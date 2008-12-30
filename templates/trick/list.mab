@@ -1,8 +1,10 @@
-h1 "トリック一覧"
+layout :default, :title => 'トリック一覧' do
+  h2 "トリック一覧"
 
-ul do
-  @tricks.each do |trick|
-    li trick.name
-    div trick.description
+  ul do
+    @tricks.each do |trick|
+      li trick.name
+      div trick.description
+    end
   end
 end

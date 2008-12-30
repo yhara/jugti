@@ -3,7 +3,7 @@ doctype :html4_strict
 html do
 
   head do
-    title @title
+    title "#{@title} - Jugti"
     link :href => '/css/site.css', :rel => 'stylesheet', :type => 'text/css'
   end
 
