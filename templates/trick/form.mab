@@ -1,0 +1,15 @@
+form :action => "/trick/#{@trick.id}", :method => 'POST' do
+  input :name => '_method', :type => 'hidden', :value => 'put'
+
+  label 'トリック名 : '
+  input :type => :text, :value => @trick.name, 
+    :name => 'trick.name', :size => 10; br
+
+  label '解説 :'; br
+  textarea @trick.description, 
+    :name => 'trick.description', :rows => 10, :cols => 70; br
+
+  input :type => :submit, :value => '保存'
+  a 'キャンセル', :href => "/trick/#{@trick.id}"
+
+end
