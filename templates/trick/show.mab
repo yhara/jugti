@@ -1,5 +1,6 @@
 layout :default, :title => "foo" do
   h2 @trick.name
+  div @trick.description
 
   table do
     tr {
