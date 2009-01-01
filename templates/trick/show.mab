@@ -11,9 +11,15 @@ layout :default, :title => @trick.name do
 
     table :id => "trick_records" do
       tr {
-        th "日付"
-        th "キャッチ"
-        th "コメント"
+        th { 
+          a(:href =>"/trick/#{@trick.id}?sort=date") { "日付" }
+        }
+        th {
+          a(:href =>"/trick/#{@trick.id}?sort=catches") { "キャッチ" }
+        }
+        th { 
+          a(:href =>"/trick/#{@trick.id}?sort=comment") { "コメント" }
+        }
       }
       tr {
         td {

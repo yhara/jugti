@@ -19,9 +19,17 @@ module Jugti
       end
       
       # show
+      RECORD_SORT_KEYS = {
+        "date" => :date,
+        "catches" => :catches,
+        "comment" => :comment
+      }
+
       on :get, ["trick", :trick_id] do
         trick = model.find(:id => captured.trick_id)
-        records = trick.records
+        sort_key = RECORD_SORT_KEYS[params[:sort]] || :date
+
+        records = trick.records_dataset.reverse_order(sort_key)
         view.show(:trick => trick, :records => records)
       end
 
