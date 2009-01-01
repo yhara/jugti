@@ -14,3 +14,10 @@ div.entry { border-bottom: 2px solid silver; }
 div.comment { border-bottom: 1px solid silver;}
 div.comment p.info { font-style: italic;}
 
+div#trick_description { margin-left: 2em; }
+
+table#trick_records { border-collapse: collapse; }
+table#trick_records td, table#trick_records th { 
+  border: 1px solid black; 
+}
+td#trick_add_record { border: 0px solid white;; }

@@ -1,15 +1,15 @@
 layout :default, :title => @trick.name do
   h2 @trick.name
-  div {
+  div :id => "trick_description" do
     span @trick.description
-    a "(編集)", :href => "/trick/#{@trick.id}?mode=edit"
-  }
+    small { a "(編集)", :href => "/trick/#{@trick.id}?mode=edit" }
+  end
 
   form :action => "/trick/#{@trick.id}", :method => 'POST' do
     input :type => :hidden, 
       :name => 'record.trick_id', :value => @trick.id
 
-    table do
+    table :id => "trick_records" do
       tr {
         th "日付"
         th "キャッチ"
@@ -17,15 +17,13 @@ layout :default, :title => @trick.name do
       }
       tr {
         td {
-          input :type => :text, :name => 'record.date', :size => 10
+          input :type => :text, :name => 'record.date', :size => 15
         }
         td {
-          input :type => :text, :name => 'record.catches', :size => 5
+          input :type => :text, :name => 'record.catches', :size => 7
         }
         td {
           input :type => :text, :name => 'record.comment', :size => 80
-        }
-        td {
           input :type => :submit, :value => '追加'
         }
       }
