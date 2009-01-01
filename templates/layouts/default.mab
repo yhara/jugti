@@ -8,7 +8,7 @@ html do
   end
 
   body do
-    h1 { a "Jugti", :href => '/tricks' }
+    h1 { a "Jugti", :href => '/' }
     div.main do
       layout_content
     end

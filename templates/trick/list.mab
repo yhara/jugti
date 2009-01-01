@@ -5,7 +5,12 @@ layout :default, :title => 'トリック一覧' do
     @tricks.each do |trick|
       li { a trick.name, :href => "trick/#{trick.id}" }
     end
+    li {
+      small {
+        a "(トリックを追加する)", :href => "/trick"
+      }
+    }
   end
 
-  a "トリックを追加する", :href => "/trick"
+  a "トップ", :href => "/"
 end
