@@ -1,16 +1,6 @@
 layout :default, :title => 'トップ' do
   h2 { a "トリック一覧", :href => "/tricks" }
 
-  ul do
-    @tricks.each do |trick|
-      if trick
-        li { a trick.name, :href => "/trick/#{trick.id}" }
-      else
-        li { a "...", :href => "/tricks" }
-      end
-    end
-  end
-
   h2 "最近の更新"
 
   ul do
