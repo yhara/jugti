@@ -1,5 +1,6 @@
 layout :default, :title => @trick.name do
-  h2 @trick.name
+  h2 { a @trick.name, :href => "/trick/#{@trick.id}" }
+
   div :id => "trick_description" do
     span @trick.description
     small { a "(編集)", :href => "/trick/#{@trick.id}?mode=edit" }
@@ -49,4 +50,6 @@ layout :default, :title => @trick.name do
       end
     end
   end
+
+  a "トップ", :href => '/'
 end
