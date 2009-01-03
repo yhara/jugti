@@ -24,12 +24,11 @@ module Jugti
         "catches" => :catches,
         "comment" => :comment
       }
-
       on :get, ["trick", :trick_id] do
         trick = model.find(:id => captured.trick_id)
         sort_key = RECORD_SORT_KEYS[params[:sort]] || :date
 
-        records = trick.records_dataset.reverse_order(sort_key)
+        records = trick.records_dataset.reverse_order(sort_key, :updated_at)
         view.show(:trick => trick, :records => records)
       end
 
