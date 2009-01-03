@@ -14,6 +14,9 @@ module Jugti
         view.top(:tricks => tricks, :records => records)
       end
 
+      on(true, ["trick", true, "records"]) { to :record }
+      on(true, ["record", true]) { to :record }
+
       on(true, ["tricks"])      { to :trick }
       on(true, ["trick"])       { to :trick }
       on(true, ["trick", true]) { to :trick }

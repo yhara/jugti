@@ -17,19 +17,22 @@ layout :default, :title => @trick.name do
         th {
           a(:href =>"/trick/#{@trick.id}?sort=catches") { "キャッチ" }
         }
-        th { 
+        th(:colspan => 2){ 
           a(:href =>"/trick/#{@trick.id}?sort=comment") { "コメント" }
         }
       }
       tr {
         td {
-          input :type => :text, :name => 'record.date', :size => 15
+          input :type => :text, :name => 'record.date', :size => 15,
+                :value => Time.now.strftime('%Y-%m-%d')
         }
         td {
           input :type => :text, :name => 'record.catches', :size => 7
         }
         td {
           input :type => :text, :name => 'record.comment', :size => 80
+        }
+        td {
           input :type => :submit, :value => '追加'
         }
       }
@@ -39,6 +42,9 @@ layout :default, :title => @trick.name do
           td record.date_str
           td record.catches 
           td record.comment 
+          td {
+            a.delete '削除', :href => "/record/#{record.id}"
+          }
         }
       end
     end
