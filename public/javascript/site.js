@@ -6,7 +6,7 @@ $(document).ready( function() {
         success: function() { window.location = window.location; }
       });
     }
-    // Stop the browser from processing the click.
+    // 本来のイベントの実行を回避する
     return false;
   });
 });

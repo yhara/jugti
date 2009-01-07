@@ -44,7 +44,12 @@ layout :default, :title => @trick.name do
           td record.catches 
           td record.comment 
           td {
-            a.delete '削除', :href => "/record/#{record.id}"
+            #a.delete '削除', :href => "/record/#{record.id}"
+            form :action => "/record/#{record.id}", :method => 'POST',
+                 :style => 'display: inline' do
+              input :type => 'hidden', :name => '_method', :value => 'DELETE'
+              input :type => 'button', :value => '削除', :onclick => ''
+            end
           }
         }
       end
