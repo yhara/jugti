@@ -4,8 +4,9 @@ module Jugti
 
     class Production < Default
 
-      database :host => 'localhost', :adapter => 'mysql', :database => 'jugti',
-        :user => 'root', :password => ''
+#      database :host => 'localhost', :adapter => 'mysql', :database => 'jugti',
+#        :user => 'root', :password => ''
+      database :adapter => 'sqlite', :database => 'jugti'
 
       reloadable []
 
@@ -13,9 +14,9 @@ module Jugti
         :output => ( :log / "waves.#{$$}" ),
         :rotation => :weekly
 
-      host '0.0.0.0'
+      host 'localhost'
 
-      port 80
+      port 3001
 
       application do
         use ::Rack::Static, :urls => [ '/css/', '/javascript/', '/favicon.ico' ], :root => 'public'
