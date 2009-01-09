@@ -4,7 +4,9 @@ module Jugti
       include Waves::Resources::Mixin
 
       on(:get, []) do
-        tricks = Jugti::Models::Trick.order(:name).map{|trick|
+        tricks = Jugti::Models::Trick.all.sort_by{|trick|
+          trick.name
+        }.map{|trick|
           [trick, trick.max_catches]
         }
         records = Jugti::Models::Record.
