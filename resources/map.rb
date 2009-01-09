@@ -4,9 +4,7 @@ module Jugti
       include Waves::Resources::Mixin
 
       on(:get, []) do
-        tricks = Jugti::Models::Trick.limit(11).to_a
-        tricks[-1] = nil if tricks.size == 11
-
+        tricks = Jugti::Models::Trick.all
         records = Jugti::Models::Record.
                     reverse_order(:updated_at).
                     limit(10)
