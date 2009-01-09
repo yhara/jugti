@@ -6,10 +6,7 @@ layout :default, :title => @trick.name do
     small { a "(編集)", :href => "/trick/#{@trick.id}?mode=edit" }
   end
 
-  form :action => "/trick/#{@trick.id}", :method => 'POST' do
-    input :type => :hidden, 
-      :name => 'record.trick_id', :value => @trick.id
-
+  div do
     table :id => "trick_records" do
       tr {
         th { 
@@ -23,19 +20,24 @@ layout :default, :title => @trick.name do
         }
       }
       tr {
-        td {
-          input :type => :text, :name => 'record.date', :size => 15,
-                :value => Time.now.strftime('%Y-%m-%d')
-        }
-        td {
-          input :type => :text, :name => 'record.catches', :size => 7
-        }
-        td {
-          input :type => :text, :name => 'record.comment', :size => 80
-        }
-        td {
-          input :type => :submit, :value => '追加'
-        }
+        form :action => "/trick/#{@trick.id}", :method => 'POST' do
+          input :type => :hidden, 
+            :name => 'record.trick_id', :value => @trick.id
+
+          td {
+            input :type => :text, :name => 'record.date', :size => 15,
+                  :value => Time.now.strftime('%Y-%m-%d')
+          }
+          td {
+            input :type => :text, :name => 'record.catches', :size => 7
+          }
+          td {
+            input :type => :text, :name => 'record.comment', :size => 80
+          }
+          td {
+            input :type => :submit, :value => '追加'
+          }
+        end
       }
 
       @records.each do |record|
@@ -44,11 +46,12 @@ layout :default, :title => @trick.name do
           td record.catches 
           td record.comment 
           td {
-            #a.delete '削除', :href => "/record/#{record.id}"
             form :action => "/record/#{record.id}", :method => 'POST',
                  :style => 'display: inline' do
-              input :type => 'hidden', :name => '_method', :value => 'DELETE'
-              input :type => 'button', :value => '削除', :onclick => ''
+              input :type => 'hidden', 
+                :name => '_method', :value => 'DELETE'
+              input :type => 'submit', :value => '削除',
+                :onclick => 'return confirm("really?");'
             end
           }
         }
@@ -56,5 +59,7 @@ layout :default, :title => @trick.name do
     end
   end
 
-  a "トップ", :href => '/'
+  div do
+    a "トップ", :href => '/'
+  end
 end
