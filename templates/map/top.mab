@@ -24,6 +24,11 @@ layout :default, :title => nil do
           span record.date_str
           a record.trick.name, :href => "/trick/#{record.trick_id}"
           span "#{record.catches}キャッチ"
+          if record.comment
+            ul {
+              li record.comment
+            }
+          end
         end
       end
     end
