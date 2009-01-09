@@ -2,11 +2,6 @@ module Jugti
   module Resources
     class Trick < Default
 
-      # list
-      on :get, ["tricks"] do
-        view.list(:tricks => controller.all )
-      end
-
       # new
       on :get, ["trick"] do
         view.new

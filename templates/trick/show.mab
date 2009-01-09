@@ -60,6 +60,6 @@ layout :default, :title => @trick.name do
   end
 
   div do
-    a "トリック一覧", :href => '/tricks'
+    a "トップ", :href => '/'
   end
 end
