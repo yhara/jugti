@@ -4,8 +4,13 @@ layout :default, :title => nil do
     h2 "トリック一覧"
 
     ul do
-      @tricks.each do |trick|
-        li { a trick.name, :href => "trick/#{trick.id}" }
+      @tricks.each do |trick, max_catches|
+        li { 
+          a trick.name, :href => "trick/#{trick.id}" 
+          if max_catches
+            span.max_catches "(#{max_catches}キャッチ)"
+          end
+        }
       end
       li {
         small {

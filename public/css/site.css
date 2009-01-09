@@ -24,6 +24,8 @@ div#right {
   float: right;
 }
 
+span.max_catches{ font-size: small; }
+
 div#trick_description { margin-left: 2em; }
 
 table#trick_records { border-collapse: collapse; }

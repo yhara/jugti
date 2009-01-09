@@ -4,7 +4,9 @@ module Jugti
       include Waves::Resources::Mixin
 
       on(:get, []) do
-        tricks = Jugti::Models::Trick.all
+        tricks = Jugti::Models::Trick.all.map{|trick|
+          [trick, trick.max_catches]
+        }
         records = Jugti::Models::Record.
                     reverse_order(:updated_at).
                     limit(10)
