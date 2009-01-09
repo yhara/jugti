@@ -21,3 +21,5 @@ table#trick_records td, table#trick_records th {
   border: 1px solid black; 
 }
 td#trick_add_record { border: 0px solid white;; }
+
+div#footer{ text-align: right; }
