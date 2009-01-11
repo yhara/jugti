@@ -16,7 +16,10 @@ html do
   end
 
   body do
-    h1 { a "Jugti", :href => '/' }
+    h1 { 
+      a "Jugti", :href => '/' 
+      span.subtitle! "ジャグリングの上達記録"
+    }
     div.main do
       layout_content
     end
