@@ -2,6 +2,6 @@ h1. Jugti
 
 Jugti is a small web app to record your juggling practices.
 
-example: http://jugti.route477.net/ (My records, japanese)
+example: "My records":http://jugti.route477.net/ (Japanese)
 
 Jugti is written with "Ruby Waves":http://rubywaves.com/
